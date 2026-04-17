@@ -1,14 +1,21 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ['build', 
-            '-t',
-             'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID', 
-             '.']
+    args: [
+      'build',
+      '-t',
+      'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID',
+      '-f',
+      'pthon-appbuid/Dockerfile',
+      '.'
+    ]
 
   - name: gcr.io/cloud-builders/docker
-    args: ['push', 'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID']
+    args: [
+      'push',
+      'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID'
+    ]
 
-images: 
+images:
   - 'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID'
 
 options:
