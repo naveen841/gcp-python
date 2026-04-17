@@ -1,0 +1,13 @@
+steps:
+  - name: 'python'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - | 
+        echo "welcome to cloud build"
+        python app.py
+        echo "recpository name: $REPO_NAME"
+        echo "branch name: $BRANCH_NAME"  
+        echo "successfully built the application"
+options:
+  logging: CLOUD_LOGGING_ONLY
