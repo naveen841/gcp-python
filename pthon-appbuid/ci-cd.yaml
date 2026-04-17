@@ -3,7 +3,7 @@ steps:
     args: [
       'build',
       '-t',
-      'asia-south1-docker.pkg.dev/.../python-app:$BUILD_ID',
+      'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID',
       '-f',
       'pthon-appbuid/Dockerfile',
       'pthon-appbuid'
