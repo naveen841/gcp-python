@@ -14,6 +14,7 @@ def hello_world():
 def welcome():
 
     return "Welcome to the world of GCP and Python!"
+    return "its has been a great experience learning and working with GCP and Python. I am excited to continue exploring and building more applications using these technologies.   "
 
 if __name__ == "__main__":
 
