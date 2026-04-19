@@ -1,0 +1,37 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: [
+      'build',
+      '-t',
+      'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID',
+      '-f',
+      'Dockerfile',
+      '.'
+    ]
+
+
+  - name: gcr.io/cloud-builders/docker
+    args: [
+      'push',
+      'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID'
+    ]
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        echo "Deploying to Cloud Run..."
+        gcloud run deploy python-app-new \
+          --image asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID\
+          --region asia-south1 \
+          --platform managed \
+          --allow-unauthenticated \
+          --port 8080 \
+          --service-account 615899167406-compute@developer.gserviceaccount.com
+
+images:
+  - 'asia-south1-docker.pkg.dev/project-2f2433e9-f92c-415a-91c/python-app/python-app:$BUILD_ID'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

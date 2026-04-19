@@ -7,8 +7,8 @@ app = flask.Flask(__name__)
 
 def hello_world():
 
-    return "Hello, World!"
-
+    return "Hello, World! This is my first Python application deployed on GCP using Cloud Build and Cloud Run. I am excited to learn more about GCP and Python and build more applications in the future."
+ 
 @app.route("/welcome")
 
 def welcome():
