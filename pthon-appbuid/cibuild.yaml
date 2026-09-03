@@ -4,6 +4,7 @@ steps:
       -  "build"
       -  "-t"
       - "asia-south1-docker.pkg.dev/gcp-devops-35440/python-app/python-dockerimage:v1"
+      - "."
     
   - name: "gcr.io/cloud-builders/docker"
     args: 
