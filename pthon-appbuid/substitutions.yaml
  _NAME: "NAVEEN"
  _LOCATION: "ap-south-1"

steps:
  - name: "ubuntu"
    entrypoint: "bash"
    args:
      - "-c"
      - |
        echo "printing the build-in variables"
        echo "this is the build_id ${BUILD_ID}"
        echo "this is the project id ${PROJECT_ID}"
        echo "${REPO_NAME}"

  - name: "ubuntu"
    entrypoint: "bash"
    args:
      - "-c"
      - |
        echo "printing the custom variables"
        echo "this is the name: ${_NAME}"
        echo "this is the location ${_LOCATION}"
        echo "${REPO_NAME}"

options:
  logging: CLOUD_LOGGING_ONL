@@ -1,0 +1,27 @@
+substitutions:
+  _NAME: "NAVEEN"
+  _LOCATION: "ap-south-1"
+
+steps:
+  - name: "ubuntu"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "printing the build-in variables"
+        echo "this is the build_id ${BUILD_ID}"
+        echo "this is the project id ${PROJECT_ID}"
+        echo "${REPO_NAME}"
+
+  - name: "ubuntu"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "printing the custom variables"
+        echo "this is the name: ${_NAME}"
+        echo "this is the location ${_LOCATION}"
+        echo "${REPO_NAME}"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
