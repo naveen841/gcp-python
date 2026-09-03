@@ -4,6 +4,7 @@ steps:
    args:
     - '-c'
     - |
+      cd pthon-appbuid 
       echo " welcome to python app"
       python app.py
       echo "this is the end --"
