@@ -6,7 +6,7 @@ steps:
     - |
       cd pthon-appbuid 
       echo " welcome to python app"
-      python app.py
+      python new_app.py
       echo "this is the end --"
 
 options:
