@@ -1,0 +1,33 @@
+substitutions:
+  _NAME: "naveen"
+  _LOCATION: "INDIAN"
+  _STATE: "KA"
+
+steps:
+  - name: "ubuntu"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "welcome to the build SUBSTITUTIONS" >>out.txt
+        echo "this the build_id ${BUILD_ID}" >>out.txt
+        echo "this the project id ${PROJECT_ID}" >>out.txt
+        echo "${REPO_NAME}" >>out.txt
+
+  - name: "ubuntu"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "welcome to the CUSTOM SUBSTITUTIONS" >>out.txt
+        echo "hello ${_NAME}" >>out.txt
+        echo "we are location is ${_LOCATION}" >>out.txt
+        echo "${_STATE}" >>out.txt
+
+artifacts:
+  objects:
+    location: 'gs://gcp-artifactes-file/testfile'
+    paths: ['out.txt']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
